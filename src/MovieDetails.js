@@ -7,7 +7,7 @@ function MovieDetails() {
   }
   return (
     <main className='movie-details' style={backgroundImage}>
-      <div>hi</div>
+      <div className='movie-box'>hi</div>
     </main>
   )
 }
