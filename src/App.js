@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './App.css';
-import dummyData from './movieData'
+import {movieData} from './movieData'
 import Movies from './Movies'
 import MovieDetails from './MovieDetails'
 
@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: dummyData.movies,
+      movies: movieData.movies,
       singleMoviePreview: false
     }
   }
