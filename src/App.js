@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import './App.css';
 import dummyData from './movieData'
 import Movies from './Movies'
+import MovieDetails from './MovieDetails'
 
 class App extends Component {
   constructor() {
@@ -21,6 +22,9 @@ class App extends Component {
   // handleClose() {
   //
   // }
+  // <main>
+  //   <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
+  // </main>
 
   render() {
     return (
@@ -28,9 +32,7 @@ class App extends Component {
         <header>
           <h1>Rancid Tomatillos</h1>
         </header>
-        <main>
-          <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
-        </main>
+        <MovieDetails />
       </body>
     );
   }
