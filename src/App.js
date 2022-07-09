@@ -7,9 +7,20 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: dummyData.movies
+      movies: dummyData.movies,
+      singleMoviePreview: false
     }
   }
+
+  handleMovieClick = () => {
+    // console.log('hey im a movie click', this.state.singleMoviePreview)
+    this.setState({singleMoviePreview: true})
+    // console.log(this.state, 'after')
+  }
+
+  // handleClose() {
+  //
+  // }
 
   render() {
     return (
@@ -18,7 +29,7 @@ class App extends Component {
           <h1>Rancid Tomatillos</h1>
         </header>
         <main>
-          <Movies movies={this.state.movies}/>
+          <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
         </main>
       </body>
     );
