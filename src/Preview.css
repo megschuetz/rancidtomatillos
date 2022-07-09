@@ -1,0 +1,25 @@
+img {
+  height: 350px;
+  display: block;
+}
+
+.poster {
+  position: relative;
+}
+
+.rating {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px;
+  background-color: #F0E68C;
+  border-radius: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+h3,
+.date {
+  color: white;
+}
+

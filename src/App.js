@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, {Component} from 'react'
 import './App.css';
+import dummyData from './movieData'
+import Movies from './Movies'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      movies: dummyData.movies
+    }
+  }
+
+  render() {
+    return (
+      <body>
+        <header>
+          <h1>Rancid Tomatillos</h1>
+        </header>
+        <main>
+          <Movies movies={this.state.movies}/>
+        </main>
+      </body>
+    );
+  }
 }
 
 export default App;
