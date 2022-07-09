@@ -22,9 +22,6 @@ class App extends Component {
   // handleClose() {
   //
   // }
-  // <main>
-  //   <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
-  // </main>
 
   render() {
     return (
@@ -32,7 +29,10 @@ class App extends Component {
         <header>
           <h1>Rancid Tomatillos</h1>
         </header>
-        <MovieDetails />
+        {this.state.singleMoviePreview && <MovieDetails />}
+        <main>
+          <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
+        </main>
       </body>
     );
   }
