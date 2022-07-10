@@ -2,7 +2,7 @@ import React from 'react'
 import './MovieDetails.css'
 import {movieDeets} from './movieData'
 
-function MovieDetails() {
+function MovieDetails({ handleClose }) {
 
   console.log(movieDeets)
   const backgroundImage = {
@@ -11,6 +11,7 @@ function MovieDetails() {
 
   return (
     <main className='movie-details' style={backgroundImage}>
+      <button className='close-button' onClick={() => handleClose()}>X</button>
       <div className='movie-box'>
         <section className='video-box'>Video Box</section>
         <section className='details-box'>

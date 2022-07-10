@@ -14,15 +14,12 @@ class App extends Component {
   }
 
   handleMovieClick = () => {
-    // console.log('hey im a movie click', this.state.singleMoviePreview)
     this.setState({singleMoviePreview: true})
-    // console.log(this.state, 'after')
   }
 
-  // handleClose() {
-  //
-  // }
-
+  handleClose = () => {
+    this.setState({singleMoviePreview: false})
+  }
 
   render() {
     return (
@@ -30,7 +27,7 @@ class App extends Component {
         <header>
           <h1>Rancid Tomatillos</h1>
         </header>
-        {this.state.singleMoviePreview && <MovieDetails />}
+        {this.state.singleMoviePreview && <MovieDetails handleClose={this.handleClose}/>}
         <main>
           <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
         </main>

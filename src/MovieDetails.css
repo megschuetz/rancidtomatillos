@@ -1,10 +1,22 @@
 .movie-details {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
   margin: 0;
+}
+
+.close-button {
+  align-self: flex-end;
+  margin-right: 100px;
+  margin-bottom: 100px;
+  padding: 10px 15px;
+  font-size: 30px;
+  border-radius: 2px;
+  border: none;
+  background-color: #A8A8A8;
 }
 
 .movie-box {
