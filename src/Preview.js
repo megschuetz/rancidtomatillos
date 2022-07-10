@@ -1,9 +1,9 @@
 import React from 'react'
 import './Preview.css'
 
-function Preview({ title, poster, rating, date }) {
+function Preview({ title, poster, rating, date, handleMovieClick }) {
   return (
-    <div>
+    <div onClick={() => handleMovieClick()}>
       <div className='poster'>
         <p className='rating'>{(Math.round(rating * 100)/100).toFixed(2)}</p>
         <img src={poster}></img>

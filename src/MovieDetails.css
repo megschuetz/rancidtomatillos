@@ -1,0 +1,39 @@
+.movie-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.movie-box {
+  width: 800px;
+  height: 600px;
+  background-color: white;
+}
+
+.video-box {
+  height: 60%;
+  background-color: purple;
+}
+
+.details-box {
+  height: 40%;
+}
+
+.detail-columns {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+
+}
+
+.column {
+  width: 50%;
+  margin-left: 50px;
+}
+
+h2, .overview {
+  margin: 20px
+}
