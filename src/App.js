@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import './App.css';
-import {movieData} from './movieData'
+import './App.css'
 import Movies from './Movies'
 import MovieDetails from './MovieDetails'
 
@@ -8,9 +7,17 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       singleMoviePreview: false
     }
+  }
+
+  componentDidMount = () => {
+    console.log('here')
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(data => this.setState({ movies: data.movies }))
+      .catch(error => console.log(error))
   }
 
   handleMovieClick = () => {
