@@ -8,24 +8,24 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      singleMoviePreview: false
+      singleMoviePreview: false,
+      id: 0
     }
   }
 
   componentDidMount = () => {
-    console.log('here')
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => console.log(error))
   }
 
-  handleMovieClick = () => {
-    this.setState({singleMoviePreview: true})
+  handleMovieClick = (id) => {
+    this.setState({singleMoviePreview: true, id: id})
   }
 
   handleClose = () => {
-    this.setState({singleMoviePreview: false})
+    this.setState({singleMoviePreview: false, id: 0})
   }
 
   render() {
@@ -34,7 +34,7 @@ class App extends Component {
         <header>
           <h1>Rancid Tomatillos</h1>
         </header>
-        {this.state.singleMoviePreview && <MovieDetails handleClose={this.handleClose}/>}
+        {this.state.singleMoviePreview && <MovieDetails handleClose={this.handleClose} id={this.state.id}/>}
         <main>
           <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
         </main>
