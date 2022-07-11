@@ -7,6 +7,8 @@ function Movies({movies, handleMovieClick}) {
   const moviePreviews = movies.map(movie => {
     return (
       <Preview
+        id={movie.id}
+        key={movie.id}
         title={movie.title}
         poster={movie.poster_path}
         rating={movie.average_rating}

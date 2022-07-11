@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import './App.css';
-import {movieData} from './movieData'
+import './App.css'
 import Movies from './Movies'
 import MovieDetails from './MovieDetails'
 
@@ -8,21 +7,26 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
-      singleMoviePreview: false
+      movies: [],
+      singleMoviePreview: false,
+      id: 0
     }
   }
 
-  handleMovieClick = () => {
-    // console.log('hey im a movie click', this.state.singleMoviePreview)
-    this.setState({singleMoviePreview: true})
-    // console.log(this.state, 'after')
+  componentDidMount = () => {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(data => this.setState({ movies: data.movies }))
+      .catch(error => alert(`Error: ${error}`))
   }
 
-  // handleClose() {
-  //
-  // }
+  handleMovieClick = (id) => {
+    this.setState({singleMoviePreview: true, id: id})
+  }
 
+  handleClose = () => {
+    this.setState({singleMoviePreview: false, id: 0})
+  }
 
   render() {
     return (
@@ -30,10 +34,13 @@ class App extends Component {
         <header>
           <h1>Rancid Tomatillos</h1>
         </header>
-        {this.state.singleMoviePreview && <MovieDetails />}
-        <main>
-          <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
-        </main>
+        {this.state.singleMoviePreview ? 
+          <MovieDetails handleClose={this.handleClose} id={this.state.id}/> 
+        : 
+          <main>
+            <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick}/>
+          </main>
+        }
       </body>
     );
   }

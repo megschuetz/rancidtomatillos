@@ -1,5 +1,5 @@
 img {
-  height: 350px;
+  width: 100%;
   display: block;
 }
 
@@ -12,10 +12,9 @@ img {
 	top: 0;
 	left: 0;
 	padding: 10px;
-  background-color: #F0E68C;
-  border-radius: 30px;
-  margin-left: 5px;
-  margin-top: 5px;
+  color: white;
+  background:rgb(40,40,40,.7);
+  margin-top: 0px;
 }
 
 h3,
@@ -23,3 +22,20 @@ h3,
   color: white;
 }
 
+h3 {
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.date {
+  margin-top: 7px;
+}
+
+.preview {
+  background-color:#383838;
+}
+
+.short-description {
+  margin-left: 15px;
+}
