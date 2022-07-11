@@ -6,3 +6,12 @@
   background-color:	#0C120C;
   padding-top: 50px;
 }
+
+ .error {
+  background-color: #0C120C;
+  color: white;
+  text-align: center;
+  padding-top: 30%; 
+  margin: 0px; 
+  height: 100vh;
+}

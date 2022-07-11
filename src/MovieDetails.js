@@ -31,7 +31,7 @@ class MovieDetails extends Component {
         <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
         <div className='movie-box'>
           <section className='details-box'>
-            <h2>Title: {singleMovieDetails.title}</h2>
+            <h2 className='title'>Title: {singleMovieDetails.title}</h2>
             <p className='overview'>Overview: {singleMovieDetails.overview}</p>
             <div className='detail-columns'>
               <div className='column'>

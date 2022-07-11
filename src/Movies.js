@@ -2,7 +2,7 @@ import React from 'react'
 import './Movies.css'
 import Preview from './Preview'
 
-function Movies({movies, handleMovieClick}) {
+function Movies({movies, handleMovieClick, error}) {
 
   const moviePreviews = movies.map(movie => {
     return (
@@ -20,9 +20,13 @@ function Movies({movies, handleMovieClick}) {
 
 
   return (
-    <div className='movies-container'>
-      {moviePreviews}
-    </div>
+    <div> 
+      {error ? <h2 className='error'>There's been an error. Deal.</h2> :
+        <div className='movies-container'>
+          {moviePreviews}
+        </div>
+      }
+    </div> 
   )
 }
 
