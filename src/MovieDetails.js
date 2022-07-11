@@ -19,8 +19,10 @@ class MovieDetails extends Component {
 
   render() {
 
+    const { singleMovieDetails } = this.state
+
     const backgroundImage = {
-      backgroundImage: `url(${this.state.singleMovieDetails.backdrop_path})`,
+      backgroundImage: `url(${singleMovieDetails.backdrop_path})`,
       backgroundSize: 'cover'
     }
 
@@ -29,17 +31,17 @@ class MovieDetails extends Component {
         <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
         <div className='movie-box'>
           <section className='details-box'>
-            <h2>Title: {this.state.singleMovieDetails.title}</h2>
-            <p className='overview'>Overview: {this.state.singleMovieDetails.overview}</p>
+            <h2>Title: {singleMovieDetails.title}</h2>
+            <p className='overview'>Overview: {singleMovieDetails.overview}</p>
             <div className='detail-columns'>
               <div className='column'>
-                <p>Genre: {this.state.singleMovieDetails.genres}</p>
-                <p>Budget: {this.state.singleMovieDetails.budget}</p>
-                <p>Revenue: {this.state.singleMovieDetails.revenue}</p>
+                <p>Genre: {singleMovieDetails.genres}</p>
+                <p>Budget: {singleMovieDetails.budget}</p>
+                <p>Revenue: {singleMovieDetails.revenue}</p>
               </div>
               <div className='column'>
-                <p>Runtime: {this.state.singleMovieDetails.runtime} minutes</p>
-                <p>Tagline: {this.state.singleMovieDetails.tagline}</p>
+                <p>Runtime: {singleMovieDetails.runtime} minutes</p>
+                <p>Tagline: {singleMovieDetails.tagline}</p>
               </div>
             </div>
           </section>
