@@ -15,10 +15,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movi')
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => this.checkForError(response))
       .then(data => this.setState({ movies: data.movies }))
-      .catch(error => this.displayNewError(error))
+      .catch(error => this.setState({error: true}))
   }
 
   checkForError = (response) => {
@@ -27,11 +27,6 @@ class App extends Component {
     } else {
       return response.json()
     }
-  }
-
-  displayNewError = (error) => {
-    this.setState({error: true})
-    console.log(error)
   }
 
   handleMovieClick = (id) => {
@@ -50,7 +45,7 @@ class App extends Component {
           <h1>Rancid Tomatillos</h1>
         </header>
         {this.state.singleMoviePreview ? 
-          <MovieDetails handleClose={this.handleClose} id={this.state.id}/> 
+          <MovieDetails handleClose={this.handleClose} id={this.state.id} checkForError={this.checkForError} /> 
         : 
           <main>
             <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick} error={this.state.error}/>

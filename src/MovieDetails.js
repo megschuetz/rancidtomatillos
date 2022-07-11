@@ -1,3 +1,4 @@
+import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers'
 import React, {Component} from 'react'
 import './MovieDetails.css'
 
@@ -6,15 +7,16 @@ class MovieDetails extends Component {
     super()
     this.state = {
        singleMovieDetails: {},
-       singleMovieVideo: {}
+       singleMovieVideo: {},
+       error: false
     }
   }
 
   componentDidMount = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
-      .then(response => response.json())
+      .then(response => this.props.checkForError(response))
       .then(data => this.setState({ singleMovieDetails: data.movie }))
-      .catch(error => alert(`Error: ${error}`))
+      .catch(error => this.setState({error: true}))
   }
 
   render() {
@@ -27,26 +29,30 @@ class MovieDetails extends Component {
     }
 
     return (
-      <main className='movie-details' style={backgroundImage}>
-        <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
-        <div className='movie-box'>
-          <section className='details-box'>
-            <h2 className='title'>Title: {singleMovieDetails.title}</h2>
-            <p className='overview'>Overview: {singleMovieDetails.overview}</p>
-            <div className='detail-columns'>
-              <div className='column'>
-                <p>Genre: {singleMovieDetails.genres}</p>
-                <p>Budget: {singleMovieDetails.budget}</p>
-                <p>Revenue: {singleMovieDetails.revenue}</p>
+      <div> 
+      { this.state.error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
+          <main className='movie-details' style={backgroundImage}>
+            <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
+            <div className='movie-box'>
+              <section className='details-box'>
+              <h2 className='title'>Title: {singleMovieDetails.title}</h2>
+              <p className='overview'>Overview: {singleMovieDetails.overview}</p>
+              <div className='detail-columns'>
+                <div className='column'>
+                  <p>Genre: {singleMovieDetails.genres}</p>
+                  <p>Budget: {singleMovieDetails.budget}</p>
+                  <p>Revenue: {singleMovieDetails.revenue}</p>
+                </div>
+                <div className='column'>
+                  <p>Runtime: {singleMovieDetails.runtime} minutes</p>
+                  <p>Tagline: {singleMovieDetails.tagline}</p>
+                </div>
               </div>
-              <div className='column'>
-                <p>Runtime: {singleMovieDetails.runtime} minutes</p>
-                <p>Tagline: {singleMovieDetails.tagline}</p>
-              </div>
+              </section>
             </div>
-          </section>
+          </main>
+        }
         </div>
-      </main>
     )
   }
 }

@@ -21,7 +21,7 @@ function Movies({movies, handleMovieClick, error}) {
 
   return (
     <div> 
-      {error ? <h2 className='error'>There's been an error. Deal.</h2> :
+      {error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
         <div className='movies-container'>
           {moviePreviews}
         </div>
