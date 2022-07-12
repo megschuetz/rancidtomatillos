@@ -12,7 +12,8 @@
   align-self: flex-end;
   margin-right: 100px;
   margin-bottom: 80px;
-  padding: 8px 12px;
+  height: 52px;
+  width: 52px;
   font-size: 25px;
   border-radius: 2px;
   border: none;
@@ -47,6 +48,6 @@
   margin-left: 50px;
 }
 
-h2, .overview {
+.title, .overview {
   margin: 20px
 }
