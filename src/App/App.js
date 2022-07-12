@@ -56,26 +56,6 @@ class App extends Component {
       </body>
     );
   }
-
-
-
-
-  // render() {
-  //   return (
-  //     <body>
-  //       <header>
-  //         <h1>Rancid Tomatillos</h1>
-  //       </header>
-  //       {this.state.singleMoviePreview ? 
-  //         <MovieDetails handleClose={this.handleClose} id={this.state.id} checkForError={this.checkForError} /> 
-  //       : 
-  //         <main>
-  //           <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick} error={this.state.error}/>
-  //         </main>
-  //       }
-  //     </body>
-  //   );
-  // }
 }
 
 export default App;

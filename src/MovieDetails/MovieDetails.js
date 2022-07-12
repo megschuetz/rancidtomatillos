@@ -18,6 +18,11 @@ class MovieDetails extends Component {
       .then(response => this.props.checkForError(response))
       .then(data => this.setState({ singleMovieDetails: data.movie }))
       .catch(error => this.setState({error: true}))
+
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/videos`)
+      .then(response => response.json())
+      .then(data => this.setState({ singleMovieVideo: data.videos[0]}))
+      .catch(error => console.log('error', error))
   }
 
   render() {
@@ -36,6 +41,15 @@ class MovieDetails extends Component {
             <Link to='/' className='close-button'> 
               <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
             </Link>
+            <iframe
+            width="800"
+            height="100%"
+            src={`https://www.youtube.com/embed/${this.state.singleMovieVideo.key}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
+            /> 
             <div className='movie-box'>
               <section className='details-box'>
               <h2 className='title'>Title: {singleMovieDetails.title}</h2>
@@ -61,24 +75,3 @@ class MovieDetails extends Component {
 }
 
 export default MovieDetails;
-
-//VIDEO START
-
-// {/* <video width="320" height="240" className='video-box' controls>
-// <source src={`https://www.youtube.com/embed/${this.state.singleMovieVideo.key}`}></source>
-// </video> */}
-
-
-// {/* <iframe
-// width="853"
-// height="480"
-// src={`https://www.youtube.com/embed/${this.state.singleMovieVideo.key}`}
-// frameBorder="0"
-// allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-// allowFullScreen
-// title="Embedded youtube"
-// /> */}
-
-// fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/videos`)
-// .then(response => response.json())
-// .then(data => this.setState({ singleMovieVideo: data.videos }))
