@@ -52,18 +52,16 @@ class MovieDetails extends Component {
             /> 
             <div className='movie-box'>
               <section className='details-box'>
-              <h2 className='title'>Title: {singleMovieDetails.title}</h2>
-              <p className='overview'>Overview: {singleMovieDetails.overview}</p>
-              <div className='detail-columns'>
-                <div className='column'>
-                  <p>Genre: {singleMovieDetails.genres}</p>
+              <div className='body-details'>
+                <h2 className='title'>{singleMovieDetails.title}</h2>
+                <p className='tag-line'>{singleMovieDetails.tagline}</p>
+                <p>Genre: {singleMovieDetails.genres}</p>
+                <p className='overview'>Overview: {singleMovieDetails.overview}</p>
+              </div>
+              <div className='column'>
+                  <p>Runtime: {singleMovieDetails.runtime} minutes</p>
                   <p>Budget: {singleMovieDetails.budget}</p>
                   <p>Revenue: {singleMovieDetails.revenue}</p>
-                </div>
-                <div className='column'>
-                  <p>Runtime: {singleMovieDetails.runtime} minutes</p>
-                  <p>Tagline: {singleMovieDetails.tagline}</p>
-                </div>
               </div>
               </section>
             </div>

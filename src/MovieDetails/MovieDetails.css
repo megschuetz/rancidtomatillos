@@ -49,6 +49,10 @@
   margin-left: 50px;
 }
 
-.title, .overview {
-  margin: 20px
+.body-details {
+  margin: 30px;
+}
+
+.tag-line {
+  font-style: italic;
 }
