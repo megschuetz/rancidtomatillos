@@ -7,14 +7,24 @@ img {
   position: relative;
 }
 
-.rating {
+.rating-container {
+  display: flex;
+  align-items: center;
 	position: absolute;
 	top: 0;
 	left: 0;
-	padding: 10px;
+	padding: 9px;
   color: white;
   background:rgb(40,40,40,.7);
   margin-top: 0px;
+}
+
+.star {
+  margin-right: 5px;
+}
+
+.rating {
+  margin: 7px 0px;
 }
 
 h3,
@@ -24,16 +34,40 @@ h3,
 
 h3 {
   font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 10px;
+  margin: 13px 0px;
 }
 
-.date {
-  margin-top: 7px;
+.more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5e5e5e;
+  border-radius: 5px;
+  border: none;
+  width: 93%;
 }
+
+.more-button:hover {
+  transform: scale(1.02);
+  box-shadow: 5px 3px 3px #303030;
+}
+
+.play {
+  height: 30px;
+  width: auto;
+  margin-right: 5px;
+}
+
+.more {
+  color: white;
+  margin: 12px 0px;
+  margin-left: 5px;
+}
+
 
 .preview {
   background-color:#383838;
+  padding-bottom: 13px;
 }
 
 .short-description {

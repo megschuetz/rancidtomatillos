@@ -39,7 +39,7 @@ class MovieDetails extends Component {
       { this.state.error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
           <main className='movie-details' style={backgroundImage}>
             <Link to='/' className='close-button'> 
-              <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
+              <button onClick={() => this.props.handleClose()}>X</button>
             </Link>
             <iframe
             width="800"
