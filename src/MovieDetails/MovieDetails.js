@@ -20,9 +20,9 @@ class MovieDetails extends Component {
       .catch(error => this.setState({error: true}))
 
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/videos`)
-      .then(response => response.json())
+      .then(response => this.props.checkForError(response))
       .then(data => this.setState({ singleMovieVideo: data.videos[0]}))
-      .catch(error => console.log('error', error))
+      .catch(error => this.setState({error: true}))
   }
 
   render() {
