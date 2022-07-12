@@ -1,6 +1,6 @@
 import React from 'react'
 import './Movies.css'
-import Preview from './Preview'
+import Preview from '../Preview/Preview'
 
 function Movies({movies, handleMovieClick, error}) {
 

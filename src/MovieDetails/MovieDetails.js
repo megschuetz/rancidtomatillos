@@ -1,6 +1,7 @@
 import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers'
 import React, {Component} from 'react'
 import './MovieDetails.css'
+import { Link } from 'react-router-dom'
 
 class MovieDetails extends Component {
   constructor() {
@@ -32,7 +33,9 @@ class MovieDetails extends Component {
       <div> 
       { this.state.error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
           <main className='movie-details' style={backgroundImage}>
-            <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
+            <Link to='/' className='close-button'> 
+              <button className='close-button' onClick={() => this.props.handleClose()}>X</button>
+            </Link>
             <div className='movie-box'>
               <section className='details-box'>
               <h2 className='title'>Title: {singleMovieDetails.title}</h2>
