@@ -9,7 +9,6 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      singleMoviePreview: false,
       id: 0, 
       error: false
     }
@@ -31,11 +30,11 @@ class App extends Component {
   }
 
   handleMovieClick = (id) => {
-    this.setState({singleMoviePreview: true, id: id})
+    this.setState({ id: id})
   }
 
   handleClose = () => {
-    this.setState({singleMoviePreview: false, id: 0})
+    this.setState({ id: 0})
   }
 
 
