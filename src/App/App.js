@@ -4,6 +4,7 @@ import Movies from '../Movies/Movies';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import { Route } from 'react-router-dom';
 import fetchResponse from '../apiCalls';
+import Reel from '../Icons/film-reel.png'
 
 class App extends Component {
   constructor() {
@@ -34,7 +35,8 @@ class App extends Component {
     return (
       <body>
         <header>
-          <h1>Rancid Tomatillos</h1>
+          <img className='reel' src={Reel}/>
+          <h1>RANCID TOMATILLOS</h1>
         </header>
           <Route exact path='/' render={() => 
             <main>

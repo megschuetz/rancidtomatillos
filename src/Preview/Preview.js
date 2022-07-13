@@ -21,7 +21,7 @@ function Preview({ id, title, poster, rating, date, handleMovieClick }) {
           <h3>{title}</h3>
           <button className='more-button'>
             <img className='play' src={Play}/>
-            <p className='more'>Preview</p>
+            <p className='details'>Details</p>
           </button>
         </div>
       </div>

@@ -1,3 +1,13 @@
+.preview {
+  background-color:#383838;
+  height: 100%;
+}
+
+.preview:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 3px 3px black;
+}
+
 img {
   width: 100%;
   display: block;
@@ -27,8 +37,7 @@ img {
   margin: 7px 0px;
 }
 
-h3,
-.date {
+h3 {
   color: white;
 }
 
@@ -60,16 +69,10 @@ h3 {
   margin-right: 5px;
 }
 
-.more {
+.details {
   color: white;
   margin: 12px 0px;
   margin-left: 5px;
-}
-
-
-.preview {
-  background-color:#383838;
-  height: 100%;
 }
 
 .short-description {
