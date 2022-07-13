@@ -3,6 +3,7 @@ import './App.css'
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import { Route } from 'react-router-dom'
+import fetchResponse from '../apiCalls'
 
 class App extends Component {
   constructor() {
@@ -15,18 +16,9 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => this.checkForError(response))
+    fetchResponse('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => this.setState({error: true}))
-  }
-
-  checkForError = (response) => {
-    if (!response.ok) {
-      throw new Error('Error')
-    } else {
-      return response.json()
-    }
   }
 
   handleMovieClick = (id) => {
@@ -50,7 +42,7 @@ class App extends Component {
             </main>
           }/>
           <Route path='/movies/:movie_id' render={() => 
-            <MovieDetails handleClose={this.handleClose} id={this.state.id} checkForError={this.checkForError} />
+            <MovieDetails handleClose={this.handleClose} id={this.state.id} />
           }/>
       </body>
     );

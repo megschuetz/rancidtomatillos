@@ -50,7 +50,7 @@ h3 {
 }
 
 .more-button:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: 5px 3px 3px #303030;
 }
 

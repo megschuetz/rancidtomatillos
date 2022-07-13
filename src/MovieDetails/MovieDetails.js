@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import './MovieDetails.css'
 import { Link } from 'react-router-dom'
 import dayjs from 'dayjs'
+import fetchResponse from '../apiCalls'
 
 class MovieDetails extends Component {
   constructor() {
@@ -15,14 +16,11 @@ class MovieDetails extends Component {
   }
 
   componentDidMount = () => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
-      .then(response => this.props.checkForError(response))
-      .then(data => this.setState({ singleMovieDetails: data.movie }))
-      .catch(error => this.setState({error: true}))
+    const movieDetails = fetchResponse(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
+    const video = fetchResponse(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/videos`)
 
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/videos`)
-      .then(response => this.props.checkForError(response))
-      .then(data => this.setState({ singleMovieVideo: data.videos[0]}))
+    Promise.all([movieDetails, video])
+      .then(data => this.setState({ singleMovieDetails: data[0].movie, singleMovieVideo: data[1].videos[0]}))
       .catch(error => this.setState({error: true}))
   }
 
@@ -34,14 +32,24 @@ class MovieDetails extends Component {
       backgroundImage: `url(${singleMovieDetails.backdrop_path})`,
       backgroundSize: 'cover'
     }
+     
+
+    console.log(singleMovieDetails)
+  
+    
+
+    //   const genresArray = singleMovieDetails.genres?.map((genre) => {
+    //      <p className='genre'>{genre}</p>
+    //     })
+ 
+
+    // console.log('array', genresArray)
 
     return (
       <div> 
       { this.state.error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
           <main className='movie-details' style={backgroundImage}>
-            <Link to='/' className='close-button'> 
-              <button onClick={() => this.props.handleClose()}>X</button>
-            </Link>
+            <Link to='/' className='close-button' onClick={() => this.props.handleClose()}>X</Link>
             <div className='pop-up-box'>
               <iframe
                 width="700"
@@ -57,7 +65,7 @@ class MovieDetails extends Component {
                   <h2 className='title'>{singleMovieDetails.title}</h2>
                   <p className='date'>{dayjs(singleMovieDetails.release_date).format('YYYY')}</p>
                   <p className='mins'>{singleMovieDetails.runtime} minutes </p>
-                </div>
+                </div> 
                 <p className='genre'>{singleMovieDetails.genres}</p>
                 <p className='tag-line'>{singleMovieDetails.tagline}</p>
                 <p className='overview'>{singleMovieDetails.overview}</p>
