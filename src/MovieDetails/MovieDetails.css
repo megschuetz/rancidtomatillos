@@ -10,44 +10,57 @@
 
 .close-button {
   align-self: flex-end;
-  margin-right: 100px;
-  margin-bottom: 80px;
-  height: 52px;
-  width: 52px;
+  text-decoration: none;
+  text-align: center;
+  margin-right: 15%;
+  margin-top: 10px;
+  width: 40px;
   font-size: 25px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: none;
   background-color: rgb(40,40,40,.7);
   color: white;
 }
 
-.movie-box {
-  width: 800px;
-  height: 600px;
-  background-color: white;
-}
-
-.video-box {
-  height: 60%;
-  background-color: purple;
+.pop-up-box {
+  height: 80%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0C120C;
+  margin-top: 10px;
 }
 
 .details-box {
-  height: 40%;
+  margin: 0px 25px;
+  color: white;
 }
 
-.detail-columns {
+.title, .date {
+  margin-right: 20px;
+}
+
+.date, .mins {
+  margin-top: 20px;
+}
+.short-details {
   display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
-
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 10px;
 }
 
-.column {
-  width: 50%;
-  margin-left: 50px;
+.tag-line {
+  font-style: italic;
 }
 
-.title, .overview {
-  margin: 20px
+.genre {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  width: auto;
+  font-size: 15px;
+  margin: 0px;
 }
