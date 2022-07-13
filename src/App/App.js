@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
-import './App.css'
-import Movies from '../Movies/Movies'
-import MovieDetails from '../MovieDetails/MovieDetails'
-import { Route } from 'react-router-dom'
-import fetchResponse from '../apiCalls'
+import React, {Component} from 'react';
+import './App.css';
+import Movies from '../Movies/Movies';
+import MovieDetails from '../MovieDetails/MovieDetails';
+import { Route } from 'react-router-dom';
+import fetchResponse from '../apiCalls';
 
 class App extends Component {
   constructor() {
@@ -13,21 +13,21 @@ class App extends Component {
       id: 0, 
       error: false
     }
-  }
+  };
 
   componentDidMount = () => {
     fetchResponse('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => this.setState({error: true}))
-  }
+  };
 
   handleMovieClick = (id) => {
     this.setState({ id: id})
-  }
+  };
 
   handleClose = () => {
     this.setState({ id: 0})
-  }
+  };
 
 
   render() {
@@ -46,7 +46,7 @@ class App extends Component {
           }/>
       </body>
     );
-  }
-}
+  };
+};
 
 export default App;

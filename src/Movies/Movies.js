@@ -1,6 +1,6 @@
-import React from 'react'
-import './Movies.css'
-import Preview from '../Preview/Preview'
+import React from 'react';
+import './Movies.css';
+import Preview from '../Preview/Preview';
 
 function Movies({movies, handleMovieClick, error}) {
 
@@ -15,8 +15,8 @@ function Movies({movies, handleMovieClick, error}) {
         date={movie.release_date}
         handleMovieClick={handleMovieClick}
       />
-    )
-  })
+    );
+  });
 
 
   return (
@@ -27,7 +27,7 @@ function Movies({movies, handleMovieClick, error}) {
         </div>
       }
     </div> 
-  )
-}
+  );
+};
 
 export default Movies;

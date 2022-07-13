@@ -1,11 +1,12 @@
-import React from 'react'
-import './Preview.css'
-import { Link } from 'react-router-dom'
-import Star from '../star.png'
-import YouTube from '../youtube.png'
-import Play from '../play-button.png'
+import React from 'react';
+import './Preview.css';
+import { Link } from 'react-router-dom';
+import Star from '../Icons/star.png';
+import YouTube from '../Icons/youtube.png';
+import Play from '../Icons/play-button.png';
 
 function Preview({ id, title, poster, rating, date, handleMovieClick }) {
+
   return (
     <Link to={`/movies/${id}`} style={{textDecoration: 'none'}}>
       <div className='preview' onClick={() => handleMovieClick(id)}>
@@ -25,7 +26,7 @@ function Preview({ id, title, poster, rating, date, handleMovieClick }) {
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default Preview
+export default Preview;

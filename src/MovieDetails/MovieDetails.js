@@ -1,9 +1,9 @@
-import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers'
-import React, {Component} from 'react'
-import './MovieDetails.css'
-import { Link } from 'react-router-dom'
-import dayjs from 'dayjs'
-import fetchResponse from '../apiCalls'
+import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
+import React, {Component} from 'react';
+import './MovieDetails.css';
+import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
+import fetchResponse from '../apiCalls';
 
 class MovieDetails extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class MovieDetails extends Component {
        singleMovieVideo: {},
        error: false
     }
-  }
+  };
 
   componentDidMount = () => {
     const movieDetails = fetchResponse(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`)
@@ -22,7 +22,7 @@ class MovieDetails extends Component {
     Promise.all([movieDetails, video])
       .then(data => this.setState({ singleMovieDetails: data[0].movie, singleMovieVideo: data[1].videos[0]}))
       .catch(error => this.setState({error: true}))
-  }
+  };
 
   render() {
 
@@ -74,8 +74,8 @@ class MovieDetails extends Component {
           </main>
         }
         </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default MovieDetails;
