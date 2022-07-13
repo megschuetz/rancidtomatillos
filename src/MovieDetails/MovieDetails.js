@@ -2,6 +2,7 @@ import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matc
 import React, {Component} from 'react'
 import './MovieDetails.css'
 import { Link } from 'react-router-dom'
+import dayjs from 'dayjs'
 
 class MovieDetails extends Component {
   constructor() {
@@ -41,28 +42,25 @@ class MovieDetails extends Component {
             <Link to='/' className='close-button'> 
               <button onClick={() => this.props.handleClose()}>X</button>
             </Link>
-            <iframe
-            width="800"
-            height="100%"
-            src={`https://www.youtube.com/embed/${this.state.singleMovieVideo.key}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Embedded youtube"
-            /> 
-            <div className='movie-box'>
+            <div className='pop-up-box'>
+              <iframe
+                width="700"
+                height="100%"
+                src={`https://www.youtube.com/embed/${this.state.singleMovieVideo.key}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+              /> 
               <section className='details-box'>
-              <div className='body-details'>
-                <h2 className='title'>{singleMovieDetails.title}</h2>
+                <div className='short-details'>
+                  <h2 className='title'>{singleMovieDetails.title}</h2>
+                  <p>{dayjs(singleMovieDetails.release_date).format('YYYY')}</p>
+                  <p>{singleMovieDetails.runtime} minutes </p>
+                </div>
+                <p className='genre'>{singleMovieDetails.genres}</p>
                 <p className='tag-line'>{singleMovieDetails.tagline}</p>
-                <p>Genre: {singleMovieDetails.genres}</p>
-                <p className='overview'>Overview: {singleMovieDetails.overview}</p>
-              </div>
-              <div className='column'>
-                  <p>Runtime: {singleMovieDetails.runtime} minutes</p>
-                  <p>Budget: {singleMovieDetails.budget}</p>
-                  <p>Revenue: {singleMovieDetails.revenue}</p>
-              </div>
+                <p className='overview'>{singleMovieDetails.overview}</p>
               </section>
             </div>
           </main>
