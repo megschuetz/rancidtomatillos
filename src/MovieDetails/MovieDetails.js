@@ -32,16 +32,12 @@ class MovieDetails extends Component {
       backgroundImage: `url(${singleMovieDetails.backdrop_path})`,
       backgroundSize: 'cover'
     }
-     
-
+    
     console.log(singleMovieDetails)
   
-    
-
     //   const genresArray = singleMovieDetails.genres?.map((genre) => {
     //      <p className='genre'>{genre}</p>
     //     })
- 
 
     // console.log('array', genresArray)
 
@@ -52,7 +48,7 @@ class MovieDetails extends Component {
             <Link to='/' className='close-button' onClick={() => this.props.handleClose()}>X</Link>
             <div className='pop-up-box'>
               <iframe
-                width="700"
+                width="100%"
                 height="100%"
                 src={`https://www.youtube.com/embed/${this.state.singleMovieVideo.key}`}
                 frameBorder="0"

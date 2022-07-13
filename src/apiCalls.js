@@ -6,7 +6,7 @@ const fetchResponse = (url) => {
       } else {
         return response.json()
       }
-    })
-}
+    });
+};
 
 export default fetchResponse;
