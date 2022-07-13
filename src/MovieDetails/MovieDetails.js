@@ -55,8 +55,8 @@ class MovieDetails extends Component {
               <section className='details-box'>
                 <div className='short-details'>
                   <h2 className='title'>{singleMovieDetails.title}</h2>
-                  <p>{dayjs(singleMovieDetails.release_date).format('YYYY')}</p>
-                  <p>{singleMovieDetails.runtime} minutes </p>
+                  <p className='date'>{dayjs(singleMovieDetails.release_date).format('YYYY')}</p>
+                  <p className='mins'>{singleMovieDetails.runtime} minutes </p>
                 </div>
                 <p className='genre'>{singleMovieDetails.genres}</p>
                 <p className='tag-line'>{singleMovieDetails.tagline}</p>
