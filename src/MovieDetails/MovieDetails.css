@@ -56,11 +56,16 @@
   font-style: italic;
 }
 
+.genres-box {
+  display: flex;
+}
+
 .genre {
   border: 1px solid white;
   border-radius: 20px;
-  padding: 10px;
+  padding: 7px;
   width: auto;
   font-size: 15px;
   margin: 0px;
+  margin-right: 10px;
 }
