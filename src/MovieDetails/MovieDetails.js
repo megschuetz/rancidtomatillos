@@ -11,7 +11,7 @@ class MovieDetails extends Component {
     this.state = {
        singleMovieDetails: {},
        singleMovieVideo: {},
-       error: false
+       error: false,
     }
   };
 
@@ -32,14 +32,14 @@ class MovieDetails extends Component {
       backgroundImage: `url(${singleMovieDetails.backdrop_path})`,
       backgroundSize: 'cover'
     }
-    
-    console.log(singleMovieDetails)
   
-    //   const genresArray = singleMovieDetails.genres?.map((genre) => {
-    //      <p className='genre'>{genre}</p>
-    //     })
-
-    // console.log('array', genresArray)
+    const genresArray = () => { 
+      if(singleMovieDetails.genres) {
+        return singleMovieDetails.genres.map((genre) => {
+          return <p className='genre' key={genre} >{genre}</p>
+        })
+      }
+    }
 
     return (
       <div> 
@@ -62,7 +62,7 @@ class MovieDetails extends Component {
                   <p className='date'>{dayjs(singleMovieDetails.release_date).format('YYYY')}</p>
                   <p className='mins'>{singleMovieDetails.runtime} minutes </p>
                 </div> 
-                <p className='genre'>{singleMovieDetails.genres}</p>
+                <div className='genres-box'>{genresArray()}</div>
                 <p className='tag-line'>{singleMovieDetails.tagline}</p>
                 <p className='overview'>{singleMovieDetails.overview}</p>
               </section>

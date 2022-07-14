@@ -43,8 +43,8 @@ class App extends Component {
               <Movies movies={this.state.movies} handleMovieClick={this.handleMovieClick} error={this.state.error} />
             </main>
           }/>
-          <Route path='/movies/:movie_id' render={() => 
-            <MovieDetails handleClose={this.handleClose} id={this.state.id} />
+          <Route path='/movies/:movie_id' render={({ match }) => 
+            <MovieDetails handleClose={this.handleClose} id={match.params['movie_id']} />
           }/>
       </body>
     );
