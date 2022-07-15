@@ -26,9 +26,6 @@ describe('Movies Display Page', () => {
         .url().should('include', '/')
   });
 
-    
-    
-
     it('Should be able to visit the home page and view a gallery of movies', () => {
       cy.intercept(
         {
