@@ -21,20 +21,35 @@ describe('Movie Details Page', () => {
         .should('contain.text', '115 minutes')
   });
 
-    it('Should contain movie details, including title, genre, year made, and movie duration.', () => {
+    it('Should contain movie details, including overview, genres and a tagline.', () => {
       cy.get('.overview')
         .should('contain.text', "When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential.")
+
+      cy.get('.genres-box')
+        .should('contain.text', 'Action')
+        .should('contain.text', 'Adventure')
+        .should('contain.text', 'Drama')
+        .should('contain.text', 'Fantasy')
+
+      cy.get('.tag-line')
+        .should('contain.text', '')
   });
 
-    it('Should be able to click on the back button on movie details to return to the home page', () => {
+    it('Should load a background image based on the movie', () => {
       cy.get('.close-button').click()
         .url().should('include', '/')
   });
-
-    it('Should be able to play a youtube video from the movie details page', () => {
-        cy.get('iframe').click({force: true})
-          .url().should('include', '/')
+  
+  it('Should be able to play a youtube video from the movie details page', () => {
+    cy.get('iframe').click({force: true})
+      .should('have.attr', 'src')
+      .should('include', 'youtube')
   });
+
+  it('Should be able to click on the back button on movie details to return to the home page', () => {
+    cy.get('.close-button').click()
+      .url().should('include', '/')
+});
 });
 
 // this.state.error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
