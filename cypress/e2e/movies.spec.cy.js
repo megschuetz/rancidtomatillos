@@ -1,6 +1,7 @@
 describe('Movies Display Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'MovieData'})
+    cy.visit('http://localhost:3000')
   })
     it('Should be able to visit the home page and view a gallery of movies', () => {
         cy.contains('RANCID TOMATILLOS')
@@ -8,7 +9,7 @@ describe('Movies Display Page', () => {
     });
 
     it('Should be able to click on a movie and be taken to the movie details page', () => {
-        cy.get('.preview').contains('Ava').click()
+        cy.get('.preview').contains('Mulan').click()
           .url().should('include', '/movies/539885')
     });
 
