@@ -41,6 +41,8 @@ class MovieDetails extends Component {
       }
     }
 
+    const tagline = singleMovieDetails.tagline && <p className='tag-line'>{singleMovieDetails.tagline}</p>
+
     return (
       <div> 
       { this.state.error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
@@ -63,7 +65,7 @@ class MovieDetails extends Component {
                   <p className='mins'>{singleMovieDetails.runtime} minutes </p>
                 </div> 
                 <div className='genres-box'>{genresArray()}</div>
-                <p className='tag-line'>{singleMovieDetails.tagline}</p>
+                <p className='tag-line'>{tagline}</p>
                 <p className='overview'>{singleMovieDetails.overview}</p>
               </section>
             </div>
