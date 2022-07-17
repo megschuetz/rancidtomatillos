@@ -33,12 +33,7 @@ describe('Movie Details Page', () => {
       cy.get('.tag-line')
         .should('contain.text', '')
     });
-
-    it('Should load a background image based on the movie', () => {
-      cy.get('.close-button').click()
-        .url().should('include', '/')
-    });
-  
+    
     it('Should be able to play a youtube video from the movie details page', () => {
       cy.get('iframe').click({force: true})
         .should('have.attr', 'src')
