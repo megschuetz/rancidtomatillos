@@ -20,13 +20,6 @@ describe('Movies Display Page', () => {
         .url().should('include', '/')
   });
 
-    it('Should be able to play a youtube video from the movie details page', () => {
-      cy.get('.preview').contains('Mulan').click()
-        .url().should('include', '/movies/337401')
-        .get('iframe').click({force: true})
-        .url().should('include', 'youtube')
-  });
-
     it('Should be able to visit the home page and view a gallery of movies', () => {
       cy.intercept(
         {
