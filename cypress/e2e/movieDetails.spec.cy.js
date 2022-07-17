@@ -44,4 +44,19 @@ describe('Movie Details Page', () => {
       cy.get('.close-button').click()
         .url().should('include', '/')
     });
+
+    it('should be able to communicate an error when there is a 400 error. ', () => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movie/337401', {
+          statusCode: 400,
+        })
+        .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
+    });
+
+    it('should be able to communicate an error when there is a 500 error. ', () => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movie/337401', {
+          statusCode: 500,
+        })
+        .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
+    });
+
 });
