@@ -30,14 +30,14 @@ describe('Movies Display Page', () => {
       ).as('getMovies') 
     });
 
-    it('Should be able to communicate an error when there is a 400 error.', () => {
+    it('Should be able to communicate top the user when there is a 400 error', () => {
       cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
           statusCode: 400,
         })
         .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
     });
 
-    it('Should be able to communicate an error when there is a 500 error.', () => {
+    it('Should be able to communicate to the user when there is a 500 error', () => {
       cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
           statusCode: 500,
         })

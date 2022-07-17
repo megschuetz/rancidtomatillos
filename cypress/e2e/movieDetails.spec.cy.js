@@ -45,18 +45,24 @@ describe('Movie Details Page', () => {
         .url().should('include', '/')
     });
 
-    it('should be able to communicate an error when there is a 400 error. ', () => {
-      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movie/337401', {
+    it('Should be able to communicate to the user when there is a 400 error', () => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
           statusCode: 400,
         })
         .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
     });
 
-    it('should be able to communicate an error when there is a 500 error. ', () => {
-      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movie/337401', {
+    it('Should be able to communicate to the user when there is a 500 error', () => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
           statusCode: 500,
         })
         .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
     });
 
+    it('Should be able to communicate to the user when the youtube video cannot be played', () => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401/videos', {
+          statusCode: 500,
+        })
+        .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
+    });
 });
