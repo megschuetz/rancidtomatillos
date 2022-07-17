@@ -7,10 +7,9 @@ describe('Movie Details Page', () => {
 
     it('Should load a url for the specific movie details', () => {
       cy.url().should('eq', 'http://localhost:3000/movies/337401')
-  });
+    });
 
     it('Should contain movie details, including title, duration, and date.', () => {
-      
       cy.get('.title')
         .should('contain.text', 'Mulan')
 
@@ -19,7 +18,7 @@ describe('Movie Details Page', () => {
 
       cy.get('.mins')
         .should('contain.text', '115 minutes')
-  });
+    });
 
     it('Should contain movie details, including overview, genres and a tagline.', () => {
       cy.get('.overview')
@@ -33,49 +32,21 @@ describe('Movie Details Page', () => {
 
       cy.get('.tag-line')
         .should('contain.text', '')
-  });
+    });
 
     it('Should load a background image based on the movie', () => {
       cy.get('.close-button').click()
         .url().should('include', '/')
-  });
+    });
   
-  it('Should be able to play a youtube video from the movie details page', () => {
-    cy.get('iframe').click({force: true})
-      .should('have.attr', 'src')
-      .should('include', 'youtube')
-  });
+    it('Should be able to play a youtube video from the movie details page', () => {
+      cy.get('iframe').click({force: true})
+        .should('have.attr', 'src')
+        .should('include', 'youtube')
+    });
 
-  it('Should be able to click on the back button on movie details to return to the home page', () => {
-    cy.get('.close-button').click()
-      .url().should('include', '/')
+    it('Should be able to click on the back button on movie details to return to the home page', () => {
+      cy.get('.close-button').click()
+        .url().should('include', '/')
+    });
 });
-});
-
-// this.state.error ? <h2 className='error'>Oops! There's been an error. Try again later.</h2> :
-//           <main className='movie-details' style={backgroundImage}>
-//             <Link to='/' className='close-button' onClick={() => this.props.handleClose()}>X</Link>
-//             <div className='pop-up-box'>
-//               <iframe
-//                 width="100%"
-//                 height="100%"
-//                 src={`https://www.youtube.com/embed/${this.state.singleMovieVideo.key}`}
-//                 frameBorder="0"
-//                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-//                 allowFullScreen
-//                 title="Embedded youtube"
-//               /> 
-//               <section className='details-box'>
-//                 <div className='short-details'>
-//                   <h2 className='title'>{singleMovieDetails.title}</h2>
-//                   <p className='date'>{dayjs(singleMovieDetails.release_date).format('YYYY')}</p>
-//                   <p className='mins'>{singleMovieDetails.runtime} minutes </p>
-//                 </div> 
-//                 <div className='genres-box'>{genresArray()}</div>
-//                 <p className='tag-line'>{singleMovieDetails.tagline}</p>
-//                 <p className='overview'>{singleMovieDetails.overview}</p>
-//               </section>
-//             </div>
-//           </main>
-//         }
-//         </div>
