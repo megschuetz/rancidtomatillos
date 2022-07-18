@@ -3,6 +3,8 @@
 ![Screen Shot 2022-07-18 at 1 31 54 PM](https://user-images.githubusercontent.com/98415017/179602513-d1459c00-f4d5-4dd4-b8a4-80bd8ff36216.png)
 ![Screen Shot 2022-07-18 at 1 32 58 PM](https://user-images.githubusercontent.com/98415017/179602693-75970c41-fc56-453f-ba53-e159ecbe7a80.png)
 
+## Deploy:
+- [Deployed Link](https://radiant-sierra-74999.herokuapp.com)
 
 ## Table of Contents
 - [Introduction](#introduction)
