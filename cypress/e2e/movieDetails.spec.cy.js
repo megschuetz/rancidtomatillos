@@ -11,13 +11,13 @@ describe('Movie Details Page', () => {
 
     it('Should contain movie details, including title, duration, and date.', () => {
       cy.get('.title')
-        .should('contain.text', 'Mulan')
+        .contains('Mulan')
 
       cy.get('.date')
-        .should('contain.text', '2020')
+        .contains('2020')
 
       cy.get('.mins')
-        .should('contain.text', '115 minutes')
+        .contains('115 minutes')
     });
 
     it('Should contain movie details, including overview, genres and a tagline.', () => {
@@ -25,17 +25,23 @@ describe('Movie Details Page', () => {
         .should('contain.text', "When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential.")
 
       cy.get('.genres-box')
-        .should('contain.text', 'Action')
-        .should('contain.text', 'Adventure')
-        .should('contain.text', 'Drama')
-        .should('contain.text', 'Fantasy')
+        .contains('Adventure')
+      
+      cy.get('.genres-box')
+        .contains('Action')
+
+      cy.get('.genres-box')
+        .contains('Drama')
+
+      cy.get('.genres-box')
+        .contains('Fantasy')
 
       cy.get('.tag-line')
-        .should('contain.text', '')
+        .should('not.be.visible')
     });
     
     it('Should be able to play a youtube video from the movie details page', () => {
-      cy.get('iframe').click({force: true})
+      cy.get('iframe').click()
         .should('have.attr', 'src')
         .should('include', 'youtube')
     });
@@ -49,20 +55,20 @@ describe('Movie Details Page', () => {
       cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
           statusCode: 400,
         })
-        .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
+        .get('.error').contains(`Oops! There's been an error. Try again later.`)
     });
 
     it('Should be able to communicate to the user when there is a 500 error', () => {
       cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
           statusCode: 500,
         })
-        .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
+        .get('.error').contains(`Oops! There's been an error. Try again later.`)
     });
 
     it('Should be able to communicate to the user when the youtube video cannot be played', () => {
       cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401/videos', {
           statusCode: 500,
         })
-        .get('.error').should('contain.text', `Oops! There's been an error. Try again later.`)
+        .get('.error').contains(`Oops! There's been an error. Try again later.`)
     });
 });
